@@ -1,0 +1,140 @@
+@media (max-width: 1400px){
+    .portadaATitulo{
+        font-size: 2rem;
+    }
+    .portadaATexto{
+        font-size: 1.2rem;
+    }
+}
+@media (max-width: 1280px){
+    .contentA{
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+        grid-template-areas: "tituloA menu00A menu00A menu00A"
+                             "articuloA articuloA articuloA articuloA"
+                             "articuloA articuloA articuloA articuloA"
+                             "articuloA articuloA articuloA articuloA"
+                             "articuloA articuloA articuloA articuloA";
+    }
+    .contentAM{
+        justify-content: center;
+        align-items: flex-end;
+    }
+    .contentAM2{
+        width: 80%;
+        height: 60%;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+    }
+    .cultivoItem{
+        width: 25%;
+        height: 100%;
+    }
+    .contentAT{
+        justify-content: flex-end;
+        align-items: flex-end;
+    }
+    .tituloA0{
+        display: flex;
+        align-items: center;
+        height: 60%;
+    }
+    .articuloA2_active{
+        top: -455px;
+    }
+    .contItemCrop{
+        width: 150px;
+        height: 180px;
+    }
+}
+@media (max-width: 1000px){
+    .tituloA0{
+        font-size: 1.8rem;
+    }
+    .cultivoItem{
+        font-size: 0.8rem;
+    }
+    .textoCultivo{
+        font-size: 0.9rem;
+    }
+}
+@media (max-width: 720px){
+    .contentA{
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+        grid-template-areas: "tituloA tituloA tituloA tituloA"
+                             "menu00A menu00A menu00A menu00A"
+                             "articuloA articuloA articuloA articuloA"
+                             "articuloA articuloA articuloA articuloA"
+                             "articuloA articuloA articuloA articuloA"
+                             "articuloA articuloA articuloA articuloA"
+                             "articuloA articuloA articuloA articuloA"
+                             "articuloA articuloA articuloA articuloA"
+                             "articuloA articuloA articuloA articuloA"
+                             "articuloA articuloA articuloA articuloA";
+    }
+    .contItemCrop{
+        width: 75px;
+        height: 90px;
+        font-size: 0.6rem;
+    }
+    .contentAM2{
+        width: 90%;
+        border-radius: 20px;
+        overflow: hidden;
+    }
+    .cultivoItem{
+        font-size: 0.7rem;
+    }
+    .contentAT{
+        justify-content: center;
+        align-items: center;
+    }
+    .portadaACont{
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr 1fr;
+        grid-template-areas: "tituloAC"
+                             "imagenAC"
+                             "parrafAC";
+    }
+    .portadaATitulo{
+        width: 80%;
+        height: 100%;
+        align-items: center;
+        justify-content: center;
+        margin: auto;
+        font-size: 1.6rem;
+        text-align: center;
+    }
+    .portadaATexto{
+        grid-area: parrafAC;
+        display: flex;
+        width: 80%;
+        align-items: center;
+        justify-content: center;
+        margin: auto;
+        font-size: 1rem;
+        text-align: center;
+    }
+    .portadaAImg{
+        width: 40%;
+        height: auto;
+        margin: auto;
+    }
+    .imagenCultivo{
+        display: none;
+    }
+    .articuloA2{
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+        grid-template-areas: "titulo2A titulo2A titulo2A titulo2A titulo2A"
+                             "texto12A texto12A texto12A texto12A texto12A"
+                             "texto12A texto12A texto12A texto12A texto12A"
+                             "texto12A texto12A texto12A texto12A texto12A"
+                             "boton2A boton2A boton2A boton2A boton2A";
+    }
+    .buttC{
+        height: 60%;
+    }
+}

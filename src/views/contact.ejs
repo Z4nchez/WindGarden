@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include("partials/head", {tituloWeb : "Wind Garden - Contacto", estiloP: "css/contact.css", estiloP2: "css/respContact.css"}) %>
+
+<body>
+
+    <%- include("partials/menuD") %>
+    
+    <header class="header">
+        
+        <%- include("partials/navegation") %>
+
+        <div class="contentD" data-aos="zoom-in">
+            <form action="https://formsubmit.co/def4cb9a2a478c42a3749b5b5089277a" method="POST" class="formulario" id="formulario">
+                <h2>Contactenos</h2>
+                <div class="contInfo">
+                    <div class="cabeceraInput">
+                        <label for="Nombre" class="labelD">Nombre</label>
+                        <p class="formulario__input-error" id="errorNombre">Use solo caracteres permitidos</p>
+                    </div>
+                    <div class="grupoInput" id="grupo__Nombre">
+                        <input type="text" placeholder="Ingrese su nombre" class="campoTexto formulario__input" name="Nombre">
+                        <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                    </div>                    
+                </div>
+                <div class="contInfo">
+                    <div class="cabeceraInput">
+                        <label for="Correo" class="labelD">Correo Electrónico</label>
+                        <p class="formulario__input-error" id="errorCorreo">Use solo caracteres permitidos</p>
+                    </div>
+                    <div class="grupoInput" id="grupo__Correo">
+                        <input type="text" placeholder="Ingrese su correo" class="campoTexto formulario__input" name="Correo">
+                        <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                    </div>                    
+                </div>
+                <div class="contInfo">
+                    <div class="cabeceraInput">
+                        <label for="Mensaje" class="labelD">Mensaje</label>
+                        <p class="formulario__input-error" id="errorMensaje">Use solo caracteres permitidos</p>
+                    </div>
+                    <div class="grupoInput" id="grupo__Mensaje">
+                        <textarea name="Mensaje" id="campoD" cols="30" rows="10" placeholder="Escriba su mensaje" class="textAreaD formulario__input"></textarea>
+                        <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                    </div>                     
+                </div>  
+                <div class="formulario__mensaje" id="formulario__mensaje">
+                    <p><i class="fas fa-exclamation-triangle"></i> <b>Error:</b> Por favor rellena el formulario correctamente. </p>
+                </div>
+
+                <button type="submit" class="botonSubmit" id="botonSubmit">Enviar</button>
+
+                <p class="formulario__mensaje-exito" id="formulario__mensaje-exito">Formulario enviado exitosamente!</p>
+
+                <input type="hidden" name="_next" value="http://localhost:3000/contact">
+                <input type="hidden" name="_captcha" value="false">
+            </form>
+        </div>
+        <video class="fondo0" src="img/fondito.mp4" autoplay muted loop></video>         
+    </header>
+
+    <%- include("partials/footer") %>
+
+    <script src="https://kit.fontawesome.com/2c36e9b7b1.js" crossorigin="anonymous"></script>
+    
+    <script>
+
+        const formulario = document.getElementById('formulario');
+        const inputs = document.querySelectorAll('.formulario__input');
+        
+
+        const expresiones = {
+	        Nombre: /^[a-zA-Z0-9\_\-]{1,16}$/, // Letras, numeros, guion y guion_bajo
+	        Mensaje: /^[a-zA-ZÀ-ÿ\.\,\¿\?\¡\!\s]{1,200}$/, // Letras y espacios, pueden llevar acentos, comas, puntos, signos de interrogación y exclamación.
+	        Correo: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/
+        }
+
+        const campos = {
+	        Nombre: false,
+	        Correo: false,
+	        Mensaje: false
+        }
+
+        const validarFormulario = (e) => {
+	        switch (e.target.name) {
+		        case "Nombre":
+			        validarCampo(expresiones.Nombre, e.target, 'Nombre');
+		        break;
+		        case "Correo":
+			        validarCampo(expresiones.Correo, e.target, 'Correo');
+		        break;
+		        case "Mensaje":
+			        validarCampo(expresiones.Mensaje, e.target, 'Mensaje');
+		        break;
+	        }
+        }
+
+        const validarCampo = (expresion, input, campo) => {
+	        if(expresion.test(input.value)){
+		        document.getElementById(`grupo__${campo}`).classList.remove('formulario__grupo-incorrecto');
+		        document.getElementById(`grupo__${campo}`).classList.add('formulario__grupo-correcto');
+		        document.querySelector(`#grupo__${campo} i`).classList.add('fa-check-circle');
+		        document.querySelector(`#grupo__${campo} i`).classList.remove('fa-times-circle');
+		        document.querySelector(`#error${campo}`).classList.remove('formulario__input-error-activo');
+		        campos[campo] = true;
+	        } 
+            else {
+		        document.getElementById(`grupo__${campo}`).classList.add('formulario__grupo-incorrecto');
+		        document.getElementById(`grupo__${campo}`).classList.remove('formulario__grupo-correcto');
+		        document.querySelector(`#grupo__${campo} i`).classList.add('fa-times-circle');
+		        document.querySelector(`#grupo__${campo} i`).classList.remove('fa-check-circle');
+		        document.querySelector(`#error${campo}`).classList.add('formulario__input-error-activo');
+		        campos[campo] = false;
+	        }
+        }
+
+        inputs.forEach((input) => {
+	        input.addEventListener('keyup', validarFormulario);
+	        input.addEventListener('blur', validarFormulario);
+        })
+
+        formulario.addEventListener('submit', (e) => {
+
+	        if(campos.Nombre && campos.Correo && campos.Mensaje){
+		        
+                document.getElementById('formulario__mensaje').classList.remove('formulario__mensaje-activo');
+		        document.getElementById('formulario__mensaje-exito').classList.add('formulario__mensaje-exito-activo');
+		        setTimeout(() => {
+			        document.getElementById('formulario__mensaje-exito').classList.remove('formulario__mensaje-exito-activo');
+		        }, 4000);
+
+		        document.querySelectorAll('.formulario__grupo-correcto').forEach((icono) => {
+			        icono.classList.remove('formulario__grupo-correcto');
+		        });
+	        } 
+            else {
+                e.preventDefault();
+		        document.getElementById('formulario__mensaje').classList.add('formulario__mensaje-activo');
+	        }
+        });
+
+    </script>
+    
+</body>
+</html>

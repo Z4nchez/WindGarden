@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include("partials/head", {tituloWeb : "Wind Garden - Guías", estiloP: "css/guides.css", estiloP2: "css/respGuides.css"}) %>
+
+<body>
+
+    <%- include("partials/menuD") %>
+    
+    <header class="header">
+        
+        <%- include("partials/navegation") %>
+        
+        <div class="contentB">
+            <div class="contentBT">
+                <div class="tituloB0" data-aos="zoom-in">Guias</div>
+            </div>
+            <div class="contentBM">
+                <div class="contentBM2" data-aos="zoom-in">
+                    <div id="botonInicio" class="guiaItem">Inicio</div>
+                    <% arreglo.forEach(guia => { %>
+                        <div id="<%= guia._id %>" class="guiaItem" onclick="sendData(this)"><%=guia.title%></div>
+                    <% }); %>
+                </div>
+            </div>
+            <div class="contentBA">
+                <div class="contentBA2" data-aos="zoom-in">
+                    <div class="articuloB">
+                        <div class="portadaBCont">
+                            <h2 class="portadaBTitulo">Guías básicas que debes conocer</h2>
+                            <p class="portadaBTexto">Desde plantar un árbol hasta iniciar un proyecto agronómico, es necesario conocer las bases del trabajo con la tierra. Si bien puede parecer una labor algo intuitiva, conocer bien los procesos en los que se fundamentan, puede hacer la diferencia para que el proyecto que se quiere llevar a cabo tenga éxito.</p>
+                            <img src="img/portada2A.png" alt="" class="portadaBImg">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <video class="fondo0" src="img/fondito.mp4" autoplay muted loop></video>         
+    </header>
+</body>
+
+<%- include("partials/footer") %>
+
+<script>
+
+    const articulo = document.querySelector(".articuloB");
+    const botonI = document.getElementById("botonInicio");
+
+    botonI.addEventListener("click", () => {
+        articulo.innerHTML = "";
+        const portada2 = document.createElement("DIV");
+        const portada2Img = document.createElement("IMG");
+        const portada2Titulo = document.createElement("H2");
+        const portada2Texto = document.createElement("P");
+
+        portada2.classList.add("portadaBCont");
+        portada2.setAttribute("data-aos", "zoom-in");
+        portada2Img.setAttribute("src", "img/portada2A.png");
+        //portada2Img.setAttribute("data-aos", "zoom-in");
+        portada2Img.classList.add("portadaBImg");
+        portada2Titulo.textContent = "Guías básicas que debes conocer";
+        portada2Titulo.classList.add("portadaBTitulo");
+        //portada2Titulo.setAttribute("data-aos", "zoom-in");
+        portada2Texto.textContent = "Desde plantar un árbol hasta iniciar un proyecto agronómico, es necesario conocer las bases del trabajo con la tierra. Si bien puede parecer una labor algo intuitiva, conocer bien los procesos en los que se fundamentan, puede hacer la diferencia para que el proyecto que se quiere llevar a cabo tenga éxito.";
+        portada2Texto.classList.add("portadaBTexto");
+        //portada2Texto.setAttribute("data-aos", "zoom-in");
+
+        portada2.appendChild(portada2Titulo);
+        portada2.appendChild(portada2Texto);
+        portada2.appendChild(portada2Img);
+
+        articulo.appendChild(portada2);
+    })
+
+    function sendData(guia){
+        fetch('obtenerGuias', {
+            method: "POST",
+            headers: {"Content-Type" : "application/json"},
+            body: JSON.stringify({dato: guia.id})
+        })
+        .then(res => res.json())
+        .then(data => {
+            
+
+            articulo.innerHTML = "";
+
+            const tituloGuia = document.createElement("H2");
+            tituloGuia.classList.add("tituloGuia")
+            tituloGuia.setAttribute("data-aos", "fade-up");
+            tituloGuia.innerHTML = data[0].title;
+            articulo.appendChild(tituloGuia)
+
+            if(data[0].article1 != ""){
+                const contenido1 = document.createElement("DIV");
+                contenido1.classList.add("contenido")
+                contenido1.setAttribute("data-aos", "fade-up");
+                contenido1.innerHTML = data[0].article1;
+                articulo.appendChild(contenido1)
+            }
+            if(data[0].img1 != ""){
+                const imagen1 = document.createElement("IMG");
+                imagen1.classList.add("contenido")
+                imagen1.setAttribute("data-aos", "fade-up");
+                imagen1.setAttribute("src", data[0].img1);
+                articulo.appendChild(imagen1)
+            }
+            if(data[0].article2 != ""){
+                const contenido2 = document.createElement("DIV");
+                contenido2.classList.add("contenido")
+                contenido2.setAttribute("data-aos", "fade-up");
+                contenido2.innerHTML = data[0].article2;
+                articulo.appendChild(contenido2)
+            }
+            if(data[0].img2 != ""){
+                const imagen2 = document.createElement("IMG");
+                imagen2.classList.add("contenido")
+                imagen2.setAttribute("data-aos", "fade-up");
+                imagen2.setAttribute("src", data[0].img2);
+                articulo.appendChild(imagen2)
+            }
+            if(data[0].article3 != ""){
+                const contenido1 = document.createElement("DIV");
+                contenido3.classList.add("contenido")
+                contenido3.setAttribute("data-aos", "fade-up");
+                contenido3.innerHTML = data[0].article3;
+                articulo.appendChild(contenido3)
+            }
+            if(data[0].img3 != ""){
+                const imagen3 = document.createElement("IMG");
+                imagen3.classList.add("contenido")
+                imagen3.setAttribute("data-aos", "fade-up");
+                imagen3.setAttribute("src", data[0].img3);
+                articulo.appendChild(imagen3)
+            }
+            
+        })
+    } 
+</script>
+
+</html>

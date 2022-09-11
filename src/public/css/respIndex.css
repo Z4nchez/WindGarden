@@ -1,0 +1,278 @@
+@media (max-width: 1400px) {
+    .titulo0{
+        font-size: 3rem;
+    }
+    .parrafo0{
+        font-size: 1.4rem;
+    }
+    .nav ul a{
+        font-size: 0.9rem;
+    }
+    .titulo1{
+        font-size: 1.6rem;
+    }
+    .imgArt1{
+        height: 30%;
+    }
+    .art1cont p{
+        font-size: 0.9rem;
+        height: 50%;
+    }
+    .titulo2{
+        font-size: 0.8rem;
+    }
+    .art2cont p{
+        font-size: 0.9rem;
+    }
+    .titulo3{
+        font-size: 1.6rem;
+    }
+    .art3b p{
+        font-size: 0.9rem;
+    }
+    .art3a_cont{
+        height: 60%;
+    }
+}
+
+@media (max-width: 1000px) {
+    .titulo0{
+        font-size: 2rem;
+    }
+    .parrafo0{
+        font-size: 1.2rem;
+    }
+    .nav ul a{
+        font-size: 0.8rem;
+    }
+    .titulo1{
+        font-size: 1.4rem;
+    }
+    .imgArt1{
+        height: 25%;
+    }
+    .art2cont{
+        border-left: 0px solid var(--colorLinea);
+    }
+    .art1cont p{
+        font-size: 0.8rem;
+        height: 55%;
+    }
+    .seccion2_cont{
+        background-color: rgba(0, 0, 0, 0.2);
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+        grid-template-areas: "titulo2"
+                             "artic2a"
+                             "artic2b"
+                             "artic2c"
+                             "button2";
+    }
+    .titulo2{
+        display: flex;
+        font-size: 1rem;
+        align-items: center;
+        justify-content: center;
+        margin: auto;
+        text-align: center;
+    }
+    .titulo2 h2{
+        text-align: center;
+        margin-right: 0;
+    }
+    .boton2Cont{
+        align-items: center;
+        justify-content: flex-start;
+        margin: 0;
+    }
+    .boton2{
+        border-radius: 0 20px 20px 0;
+    }
+    .art2cont p{
+        font-size: 0.8rem;
+    }
+    .titulo3{
+        font-size: 1.4rem;
+    }
+    .art3b p{
+        font-size: 0.8rem;
+    }
+    .art3a_cont{
+        height: 40%;
+    }
+    .nav ul{
+        width: 70%;
+    }
+    
+}
+@media (max-width: 720px){
+    .nav__menu{
+        transition: all .5s;
+    }
+    .nav{
+        background-color: rgb(190, 146, 110);
+        position: fixed;
+        z-index: 100;
+    }
+    .nav__menu0{
+        display: none;
+    }
+    .titulo0{
+        font-size: 1.6rem;
+        width: 50%;
+        margin-left: 10%;
+        text-align: left;
+        justify-content: flex-start;
+    }
+    .parrafo0{
+        font-size: 1rem;
+        width: 80%;
+        margin-left: 10%;
+        margin-right: 10%;
+        text-align: left;
+        justify-content: flex-start;
+    }
+    .botonCont{
+        align-items: flex-start;
+    }
+    .titulo1{
+        font-size: 1rem;
+    }
+    .imgArt1{
+        height: 40%;
+    }
+    .art1cont p{
+        font-size: 0.7rem;
+        height: 60%;
+        display: none;
+    }
+    .art1cont h3{
+        font-size: 1rem;
+    }
+    .seccion2_cont{
+        background-color: rgba(0, 0, 0, 0.2);
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+        grid-template-areas: "titulo2"
+                             "artic2a"
+                             "artic2b"
+                             "artic2c"
+                             "button2";
+    }
+    .titulo2{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: auto;
+        text-align: center;
+        font-size: 1rem;
+    }
+    .titulo2 h2{
+        text-align: center;
+        margin-right: 0;
+    }
+    .boton2Cont{
+        align-items: center;
+        justify-content: flex-start;
+        margin: 0;
+    }
+    .boton2{
+        border-radius: 0 20px 20px 0;
+    }
+    .art2cont{
+        border-left: 0px solid var(--colorLinea);
+    }
+    .art2cont p{
+        font-size: 0.7rem;
+    }
+    .titulo3{
+        font-size: 1rem;
+        border-left: 0px solid var(--colorLinea);
+    }
+    .art3b{
+        border-left: 0px solid var(--colorLinea);
+    }
+    .art3b p{
+        font-size: 0.7rem;
+    }
+    .art3a_cont{
+        height: 80%;
+    }
+    .content{
+        background-color: rgba(0, 0, 0, 0.2);
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr 1fr;
+        grid-template-areas: "titulo0"
+                             "parraf0"
+                             "boton0";
+    }
+    .seccion1_cont{
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+        grid-template-areas: "titulo1 titulo1 titulo1"
+                             "artic1a artic1a artic1a"
+                             "artic1b artic1b artic1b"
+                             "artic1c artic1c artic1c"
+                             "boton1a boton1a boton1a";
+    }
+    .art1cont{
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;       
+    }
+    .art1contenedor{
+        height: 200px;
+    }
+    .seccion3_cont{
+        background-color: rgba(0, 0, 0, 0.2);
+        width: 90%;
+        height: 90%;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+        grid-template-areas: "titulo3 titulo3 titulo3"
+                             "artic3a artic3a artic3a"
+                             "artic3a artic3a artic3a"
+                             "artic3b artic3b artic3b"
+                             "button3 button3 button3";
+    }
+
+    .footer h4{
+        font-size: 0.6rem;
+    }
+    .logo{
+        width: 120px;
+    }
+    .logo img{
+        width: 120px;
+    }
+    .logo0{
+        width: 120px;
+    }
+    .logo0 img{
+        width: 120px;
+    }
+    .checkLabel{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 28px;
+    }
+    .check0:checked ~ .nav__menu{
+        top: 140px;
+    }
+}
+@media (max-width: 480px){
+    .footer h4{
+        font-size: 0.5rem;
+    }
+    .logo{
+        width: 80px;
+    }
+    .logo img{
+        width: 80px;
+    }
+}

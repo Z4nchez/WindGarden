@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include("partials/head", {tituloWeb : "Wind Garden - Climas", estiloP: "css/maps.css", estiloP2: "css/respMaps.css"}) %>
+
+<body>
+
+    <%- include("partials/menuD") %>
+    
+    <header class="header">
+
+        <%- include("partials/navegation") %>
+        
+        <div class="contentC0">
+            <div class="contentM">
+                <div class="tituloC0">
+                    <h2 data-aos="fade-right">Tipos de climas secos</h2>
+                    <p data-aos="fade-right">Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur perferendis temporibus nesciunt. Porro veritatis maiores ipsum nisi voluptatum, quos suscipit aut expedita recusandae ut quo maxime quasi at, quia debitis!</p>                    
+                    <div class="botonC_contMax">
+                        <div class="botonC_cont">
+                            <div class="boton2 botonC" id="buttonC">Atrás -></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="mapa_cont">
+                    <div class="mapa_c" id="mapa_c" data-aos="fade-left">
+                        <img src="img/mapaAndino.png" alt="" class="mAndino mp" id="Andino"> 
+                        <img src="img/mapaArabia.png" alt="" class="mArabia mp" id="Arabia">
+                        <img src="img/mapaAustralia.png" alt="" class="mAustralia mp" id="Australiano">
+                        <img src="img/mapaGobi.png" alt="" class="mGobi mp" id="Gobi">
+                        <img src="img/mapaTurkstan.png" alt="" class="mTurk mp" id="Karakum">
+                        <img src="img/mapaIran.png" alt="" class="mIran mp" id="Iran">
+                        <img src="img/mapaIndia.png" alt="" class="mIndia mp" id="Thar">
+                        <img src="img/mapaSahara.png" alt="" class="mSahara mp" id="Sahara">
+                        <img src="img/mapaSonora.png" alt="" class="mSonora mp" id="Sonora">
+                        <img src="img/mapaSudafrica.png" alt="" class="mSudafrica mp" id="Kalahari">
+                    </div>
+                    <div class="mapa_info" id="mapa_info">
+                        <div class="titleInfo_cont">
+                            <h2 id="tituloMap">Zona Andina</h2>
+                        </div>
+                        <div class="info1_cont">
+                            <p id="art1Map" class="contenido3">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quam atque repellendus, voluptatem molestias assumenda corporis amet, cupiditate alias similique minima harum nesciunt, minus rem! Ducimus, velit nam sed totam recusandae rerum aliquam quaerat sint expedita corporis ipsa quis doloribus iusto eveniet quibusdam delectus distinctio officiis ullam doloremque sunt porro laudantium.</p>
+                        </div>
+                        <div class="info2_cont">
+                            <p id="art2Map" class="contenido3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum repellat corporis mollitia autem natus eligendi obcaecati earum explicabo, nulla odio nam est magnam delectus porro atque ullam culpa alias consequuntur sunt qui similique. Libero ipsam inventore officia et. Dignissimos et corporis quidem ducimus consequuntur ipsa officiis animi perferendis molestiae! Quam molestias soluta voluptatibus consequuntur deserunt ipsum tempore temporibus officia porro?</p>
+                        </div>
+                        <div class="info3_cont">
+                            <p id="art3Map" class="contenido3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum repellat corporis mollitia autem natus eligendi obcaecati earum explicabo, nulla odio nam est magnam delectus porro atque ullam culpa alias consequuntur sunt qui similique. Libero ipsam inventore officia et. Dignissimos et corporis quidem ducimus consequuntur ipsa officiis animi perferendis molestiae! Quam molestias soluta voluptatibus consequuntur deserunt ipsum tempore temporibus officia porro?</p>
+                        </div>
+                        <div class="imgC_cont im1">
+                            <img id="imgC1" class="image1" src="img/imgArt3c.jpg" alt="">
+                        </div>
+                        <div class="imgC_cont im2">
+                            <img id="imgC2" class="image2" src="img/imgArt3c.jpg" alt="">
+                        </div>
+                        <div class="imgC_cont im3">
+                            <img id="imgC3" class="image3" src="img/imgArt3c.jpg" alt="">
+                        </div>
+                    </div>                                     
+                </div> 
+            </div>
+            
+        </div>
+        <video class="fondo0" src="img/fondito.mp4" autoplay muted loop></video>         
+    </header>
+    
+    <%- include("partials/footer") %>
+
+    <script>
+
+        const mAndino = document.getElementById("Andino");
+        const mSonora = document.getElementById("Sonora");
+        const mAustralia = document.getElementById("Australiano");
+        const mSahara = document.getElementById("Sahara");
+        const mThar = document.getElementById("Thar");
+        const mArabia = document.getElementById("Arabia");
+        const mKarakum = document.getElementById("Karakum");
+        const mGobi = document.getElementById("Gobi");
+        const mIran = document.getElementById("Iran");
+        const mKalahari = document.getElementById("Kalahari");
+        const titulo = document.getElementById("tituloMap");
+        const art1 = document.getElementById("art1Map");
+        const art2 = document.getElementById("art2Map");
+        const art3 = document.getElementById("art3Map");
+        const img1 = document.getElementById("imgC1");
+        const img2 = document.getElementById("imgC2");
+        const img3 = document.getElementById("imgC3");
+        const botonC = document.getElementById("buttonC");
+
+        function cargarRegion(nombre){
+            fetch('obtenerDB', {
+                method: "POST",
+                headers: {"Content-Type" : "application/json"},
+                body: JSON.stringify({dato: nombre})
+            })
+            .then(res => res.json())
+            .then(data => {
+                titulo.textContent = data[0].titulo;
+                art1.textContent = data[0].articulo1;
+                art2.textContent = data[0].articulo2;
+                art3.textContent = data[0].articulo3;
+                img1.src = data[0].imagen1;
+                img2.src = data[0].imagen2;
+                img3.src = data[0].imagen3;
+                document.querySelector(".botonC").classList.toggle("botonC_active")
+                document.querySelector(".mapa_info").classList.toggle("mapa_info_active")
+                document.querySelector(".mapa_c").classList.toggle("mapa_c_inactive")
+            })
+        } 
+
+        mAndino.addEventListener("click", () =>{
+            cargarRegion(mAndino.id);
+        })
+        mSonora.addEventListener("click", () =>{
+            cargarRegion(mSonora.id);
+        })
+        mAustralia.addEventListener("click", () =>{
+            cargarRegion(mAustralia.id);
+        })
+        mSahara.addEventListener("click", () =>{
+            cargarRegion(mSahara.id);
+        })
+        mArabia.addEventListener("click", () =>{
+            cargarRegion(mArabia.id);
+        }) 
+        mIran.addEventListener("click", () =>{
+            cargarRegion(mIran.id);
+        }) 
+        mThar.addEventListener("click", () =>{
+            cargarRegion(mThar.id);
+        }) 
+        mKarakum.addEventListener("click", () =>{
+            cargarRegion(mKarakum.id);
+        }) 
+        mGobi.addEventListener("click", () =>{
+            cargarRegion(mGobi.id);
+        }) 
+        mKalahari.addEventListener("click", () =>{
+            cargarRegion(mKalahari.id);
+        })         
+
+        botonC.addEventListener("click", () => {
+            titulo.textContent = "";
+            art1.textContent = "";
+            art2.textContent = "";
+            document.querySelector(".botonC").classList.remove("botonC_active")
+            document.querySelector(".mapa_info").classList.remove("mapa_info_active")
+            document.querySelector(".mapa_info").scrollTop = 0;
+            document.querySelector(".mapa_c").classList.remove("mapa_c_inactive")
+        })
+
+    </script>
+</body>
+</html>

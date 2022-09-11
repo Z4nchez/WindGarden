@@ -1,0 +1,20 @@
+<footer class="footer">
+    <h4>Wind Garden © 2022</h4>
+    <div class="logo">
+        <img src="img/windG.svg" alt="">
+    </div>
+    <h4>szwallie26@gmail.com</h4>
+</footer>
+
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+<script>
+    AOS.init();
+
+    const botonMenu = document.querySelector(".checkLabel");
+    const menuD = document.querySelector(".nav__menu");
+
+    botonMenu.addEventListener("click", () => {
+        menuD.classList.toggle("nav__menu-active");
+    })
+</script>

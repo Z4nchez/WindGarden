@@ -1,0 +1,251 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat', sans-serif;
+}
+:root{
+    --colorOscuro: rgb(27, 14, 2);
+    --colorMedio: rgb(109, 40, 0);
+    --colorClaro: rgb(240, 137, 52);
+    --colorLinea: rgba(150, 55, 0, 0.3);
+}
+.contentA{
+    grid-area: con;
+    width: 90%;
+    height: 90%;
+    margin: auto;
+    margin-top: 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    grid-template-areas: "tituloA articuloA articuloA articuloA"
+                         "menu00A articuloA articuloA articuloA"
+                         "menu00A articuloA articuloA articuloA"
+                         "menu00A articuloA articuloA articuloA";
+}
+.contentAT{
+    position: relative;
+    z-index: 2;
+    grid-area: tituloA;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+.contentAA{
+    position: relative;
+    z-index: 2;
+    grid-area: articuloA;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.contentAA2{
+    border-radius: 20px;
+    background-color: rgba(0, 0, 0, 0.14);
+    width: 90%;
+    height: 90%;
+    overflow: hidden;
+}
+.articuloA{
+    top: 35px;
+    position: relative;
+    width: 90%;
+    height: 90%;
+    margin: auto;
+    z-index: 3;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    overflow-y: auto;
+    opacity: 1;
+    transition: opacity .5s ease-out;
+}
+.articuloA_inactive{
+    top: -2100px;
+    opacity: 0;
+}
+.articuloA2{
+    top: -2100px;
+    width: 90%;
+    height: 90%;
+    margin: auto;
+    position: relative;
+    z-index: 3;
+    display: grid;
+    transition: top .5s ease-out;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-areas: "titulo2A titulo2A titulo2A titulo2A titulo2A"
+                         "texto12A texto12A texto12A imagen2A imagen2A"
+                         "texto12A texto12A texto12A imagen2A imagen2A"
+                         "texto12A texto12A texto12A imagen2A imagen2A"
+                         "texto12A texto12A texto12A boton2A boton2A";
+}
+.articuloA2_active{
+    top: -575px;
+}
+.contentAM{
+    position: relative;
+    z-index: 2;
+    grid-area: menu00A;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.contentAM2{
+    width: 100%;
+    height: 414px;
+    background-color: rgba(0, 0, 0, 0.14);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 1px;
+}
+.tituloA0{
+    font-size: 2.4rem;
+}
+.cultivoItem{
+    width: 100%;
+    height: 100px;
+    background-color: rgba(0, 0, 0, 0.14);
+    margin-top: 2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+.cultivoItem:hover{
+    background-color: rgba(0, 0, 0, 0.377);
+}
+.contItemCrop{
+    width: 200px;
+    height: 240px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+}
+.articuloB{
+    width: 100%;
+    height: 100%;
+    flex-wrap: wrap;
+    position: relative;
+    margin: auto;
+    z-index: 3;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+.contItemCrop:hover{
+    background-color: rgba(0, 0, 0, 0.4);
+}
+.imgItemCrop{
+    width: 90%;
+    height: 70%;
+    border-radius: 6px;
+}
+.pItemCrop{
+    width: 90%;
+    height: 20%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.portadaACont{
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-areas: "tituloAC tituloAC"
+                         "parrafAC imagenAC"
+                         "parrafAC imagenAC";
+}
+.portadaATitulo{
+    grid-area: tituloAC;
+    display: flex;
+    width: 80%;
+    height: 100%;
+    align-items: center;
+    justify-content: flex-start;
+    margin-left: 10px;
+    font-size: 2.8rem;
+}
+.portadaATexto{
+    grid-area: parrafAC;
+    display: flex;
+    width: 80%;
+    align-items: center;
+    justify-content: flex-start;
+    margin-left: 10px;
+    margin-right: 10px;
+    font-size: 1.6rem;
+}
+.portadaAImg{
+    grid-area: imagenAC;
+    width: 80%;
+    height: auto;
+    margin: auto;
+}
+
+.tituloCultivo{
+    grid-area: titulo2A;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.2);
+}
+.titC{
+    width: 90%;
+    height: 60px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+.textoCultivo{
+    grid-area: texto12A;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow-y: scroll;
+}
+.textC1{
+    width: 90%;
+    height: 90%;
+    display: flex;
+    align-items: flex-start;
+}
+.botonCultivo{
+    grid-area: boton2A;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.buttC{
+    width: 90%;
+    height: 90%;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+}
+.buttC:hover{
+    background-color: rgba(0, 0, 0, 0.4);
+}
+.imagenCultivo{
+    grid-area: imagen2A;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.imgC2{
+    width: 90%;
+    height: 90%;
+    border-radius: 8px;
+    box-shadow: 0 0 12px rgba(0, 0, 0, 0.7);
+}

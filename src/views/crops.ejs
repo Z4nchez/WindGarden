@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include("partials/head", {tituloWeb : "Wind Garden - Cultivos", estiloP: "css/crops.css", estiloP2: "css/respCrops.css"}) %>
+
+<body>
+
+    <%- include("partials/menuD") %>
+    
+    <header class="header">
+        
+        <%- include("partials/navegation") %>
+        
+        <div class="contentA">
+            <div class="contentAT">
+                <h1 class="tituloA0">Cultivos</h1>
+            </div>
+            <div class="contentAM">
+                <div class="contentAM2" data-aos="zoom-in">
+                    <div id="itemInicio" class="cultivoItem">Inicio</div>
+                    <div id="itemArboles" class="cultivoItem">Arboles</div>
+                    <div id="itemFrutales" class="cultivoItem">Frutales</div>
+                    <div id="itemHortalizas" class="cultivoItem">Hortalizas</div>                    
+                </div>
+            </div>
+            <div class="contentAA">
+                <div class="contentAA2">
+                    <div class="articuloA">
+                        <div class="portadaACont" data-aos="zoom-in">
+                            <h2 class="portadaATitulo">¿Qué será lo próximo que plantarás?</h2>
+                            <p class="portadaATexto">Bienvenido a nuestra biblioteca de cultivos. Aquí encontrarás información útil sobre algunas de las plantaciones más típicas para jardines, invernaderos y extensiones de campos.</p>
+                            <img src="img/portadaCrop.png" alt="" class="portadaAImg">
+                        </div>
+                    </div>
+                    <div class="articuloA2">
+                        <div class="tituloCultivo">
+                            <h1 class="titC"></h1>
+                        </div>
+                        <div class="textoCultivo">
+                            <p class="textC1"></p>
+                        </div>
+                        <div class="botonCultivo">
+                            <p class="buttC">Atrás</p>
+                        </div>
+                        <div class="imagenCultivo">
+                            <img src="" alt="" class="imgC2">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <video class="fondo0" src="img/fondito.mp4" autoplay muted loop></video>         
+    </header>
+</body>
+
+<%- include("partials/footer") %>
+
+<script>
+
+    const articulo = document.querySelector(".articuloA");
+    const iInicio = document.getElementById("itemInicio");
+    const iArboles = document.getElementById("itemArboles");
+    const iFrutales = document.getElementById("itemFrutales");
+    const iHortalizas = document.getElementById("itemHortalizas");
+
+    iInicio.addEventListener("click", () => {
+        articulo.innerHTML = "";
+        const portada = document.createElement("DIV");
+        const portadaImg = document.createElement("IMG");
+        const portadaTitulo = document.createElement("H2");
+        const portadaTexto = document.createElement("P");
+
+        portada.classList.add("portadaACont");
+        portada.setAttribute("data-aos", "zoom-in");
+        portadaImg.setAttribute("src", "img/portadaCrop.png");
+        portadaImg.classList.add("portadaAImg");
+        portadaTitulo.textContent = "¿Qué será lo próximo que plantarás?";
+        portadaTitulo.classList.add("portadaATitulo");
+        portadaTexto.textContent = "Bienvenido a nuestra biblioteca de cultivos. Aquí encontrarás información útil sobre algunas de las plantaciones más típicas para jardines, invernaderos y extensiones de campos.";
+        portadaTexto.classList.add("portadaATexto");
+
+        portada.appendChild(portadaTitulo);
+        portada.appendChild(portadaTexto);
+        portada.appendChild(portadaImg);
+
+        articulo.appendChild(portada);
+    })
+    iArboles.addEventListener("click", () => {
+        sendData("arbol");
+    })
+    iFrutales.addEventListener("click", () => {
+        sendData("frutal");
+    })
+    iHortalizas.addEventListener("click", () => {
+        sendData("hortaliza");
+    })
+
+    function sendData(cultivo){
+        fetch('obtenerCultivos', {
+            method: "POST",
+            headers: {"Content-Type" : "application/json"},
+            body: JSON.stringify({dato: cultivo})
+        })
+        .then(res => res.json())
+        .then(data => {
+            articulo.innerHTML = "";
+            const articuloB = document.createElement("DIV");
+            articuloB.classList.add("articuloB");
+            articuloB.setAttribute("data-aos", "zoom-in");
+            data.forEach(element => {               
+                const nuevoElemento = document.createElement("DIV");
+                const imagenCrop = document.createElement("IMG");
+                const tituloCrop = document.createElement("P");                
+                nuevoElemento.classList.add("contItemCrop");
+                nuevoElemento.setAttribute("id", element.nombre);
+                nuevoElemento.setAttribute("onclick", "desplegarItem(this)")
+                //nuevoElemento.setAttribute("data-aos", "zoom-in");
+                imagenCrop.classList.add("imgItemCrop");
+                imagenCrop.setAttribute("src", element.imagen);
+                tituloCrop.classList.add("pItemCrop");
+                tituloCrop.textContent = element.nombre;
+                nuevoElemento.appendChild(imagenCrop);
+                nuevoElemento.appendChild(tituloCrop);
+                articuloB.appendChild(nuevoElemento);
+            });
+            articulo.appendChild(articuloB);
+        })
+    } 
+
+    const botonArt2 = document.querySelector(".buttC");
+    const articulo2 = document.querySelector(".articuloA2");
+    const tituloA2 = document.querySelector(".titC");
+    const textoA2 = document.querySelector(".textC1");
+    const imagenA2 = document.querySelector(".imgC2");
+
+    function desplegarItem(item){
+        articulo2.classList.toggle("articuloA2_active");
+        articulo.classList.toggle("articuloA_inactive");
+        fetch('obtenerCultivo', {
+            method: "POST",
+            headers: {"Content-Type" : "application/json"},
+            body: JSON.stringify({dato: item.id})
+        })
+        .then(res => res.json())
+        .then(data => {
+            tituloA2.textContent = data[0].nombre;
+            textoA2.textContent = data[0].descripcion;
+            imagenA2.setAttribute("src", data[0].imagen);
+        })
+    }
+
+    botonArt2.addEventListener("click", () => {
+        articulo.classList.remove("articuloA_inactive");
+        articulo2.classList.remove("articuloA2_active");        
+    })
+</script>
+
+</html>

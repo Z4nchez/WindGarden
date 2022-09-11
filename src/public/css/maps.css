@@ -1,0 +1,260 @@
+:root{
+    --colorOscuro: rgb(27, 14, 2);
+    --colorMedio: rgb(109, 40, 0);
+    --colorClaro: rgb(240, 137, 52);
+    --colorLinea: rgba(150, 55, 0, 0.3);
+}
+.contentC0{
+    grid-area: con;
+    width: 90%;
+    height: 90%;
+    margin: auto;
+    margin-top: 0;
+}
+.contentM{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;   
+}
+.tituloC0{
+    position: relative;
+    z-index: 2;
+    width: 20%;
+    height: 70%;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    padding: 0 5% 0 5%;
+}
+.tituloC0 h2{
+    font-size: 2.6rem;
+    text-align: end;
+}
+.tituloC0 p{
+    text-align: end;
+}
+.botonC_contMax{
+    width: 100%;
+}
+.mapa_cont{
+    position: relative;
+    z-index: 3;
+    width: 80%;
+    height: 70%;
+    border-left: 1px solid var(--colorLinea);
+    overflow: hidden;
+    margin: auto;
+}
+.mapa_c{
+    top: 0;
+    left: 0;
+    opacity: 1;
+    margin: auto;
+    position: relative;
+    z-index: 3;
+    width: 960px;
+    height: 480px;
+    background-image: url(../img/mapaCompleto.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    transition: opacity .5s ease-out;
+}
+.mapa_c_inactive{
+    top: -2100px;
+    left: 0;
+    opacity: 0;
+}
+.mp{
+    cursor: pointer;
+}
+.mp:hover{
+    filter: drop-shadow(0 0 2px var(--colorMedio));
+}
+.mAndino{
+    position: relative;
+    left: 21.5%;
+    top: 59.4%;
+    width: 6.95%;
+    height: 29.53%;
+}
+.mArabia{
+    position: relative;
+    left: 46.4%;
+    top: 19.9%;
+    width: 7.96%;
+    height: 12.34%;
+    z-index: 3;
+}
+.mAustralia{
+    position: relative;
+    left: 60.8%;
+    top: 49.9%;
+    width: 9.53%;
+    height: 14.21%;
+}
+.mGobi{
+    position: relative;
+    left: 37%;
+    top: 6.0%;
+    width: 13.82%;
+    height: 13.75%;
+    z-index: 1;
+}
+.mTurk{
+    position: relative;
+    left: 14.6%;
+    top: 9.6%;
+    width: 12.89%;
+    height: 15.15%;
+}
+.mIran{
+    position: relative;
+    left: -0.5%;
+    top: 12.2%;
+    width: 9.92%;
+    height: 10.62%;
+}
+.mIndia{
+    position: relative;
+    left: -1.4%;
+    top: 14.9%;
+    width: 4.37%;
+    height: 7.81%;
+}
+.mSahara{
+    position: relative;
+    left: -28.7%;
+    top: 30%;
+    width: 19.68%;
+    height: 25.15%;
+    z-index: 2;
+}
+.mSonora{
+    position: relative;
+    left: -76.6%;
+    top: 15.15%;
+    width: 10.46%;
+    height: 16.56%;
+    z-index: 2;
+}
+.mSudafrica{
+    position: relative;
+    left: 48.1%;
+    top: 34.15%;
+    width: 5.54%;
+    height: 13.9%;
+}
+.mapa_info{
+    top: -1100px;
+    left: 40px;
+    width: 100%;
+    height: 100%;
+    margin: auto;
+    position: relative;
+    z-index: 3;
+    display: grid;
+    overflow-y: scroll;
+    opacity: 0;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-areas: "tituloC tituloC tituloC"
+                         "tituloC tituloC tituloC"
+                         "infoC01 imagen1 imagen1"
+                         "infoC01 imagen1 imagen1"
+                         "infoC02 imagen2 imagen2"
+                         "infoC02 imagen2 imagen2"
+                         "infoC03 imagen3 imagen3"
+                         "infoC03 imagen3 imagen3";
+    /*gap: 40px;*/
+    transition: opacity .5s ease-out, top .5s ease-out;
+}
+.mapa_info_active{
+    top: -480px;
+    left: 40px;
+    opacity: 1;
+    position: relative;
+    z-index: 3;
+}
+.titleInfo_cont{
+    grid-area: tituloC;
+    height: 100px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+.titleInfo_cont h2{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 93%;
+    height: 40px;
+    background-color: rgba(0, 0, 0, 0.14);
+}
+.info1_cont{
+    grid-area: infoC01;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    height: 400px;
+}
+.info2_cont{
+    grid-area: infoC02;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    height: 400px;
+}
+.info3_cont{
+    grid-area: infoC03;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 400px;
+}
+.contenido3{
+    width: 100%;
+}
+.info1_cont p{
+    height: 80%;
+}
+.info2_cont p{
+    height: 80%;
+}
+.info3_cont p{
+    height: 80%;
+}
+.im1{
+    grid-area: imagen1;
+}
+.im2{
+    grid-area: imagen2;
+}
+.im3{
+    grid-area: imagen3;
+}
+.imgC_cont{
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+.imgC_cont img{
+    width: 80%;
+    height: 80%;
+    border-radius: 6px;
+    box-shadow: 0 0 12px rgba(0, 0, 0, 0.7);
+}
+.botonC_cont{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+.botonC{
+    margin-right: 0;
+    visibility: hidden;
+    cursor: pointer;
+}
+.botonC_active{
+    visibility: visible;
+}

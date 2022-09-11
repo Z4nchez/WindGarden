@@ -1,0 +1,9 @@
+@media (max-width: 720px){
+    .contentD{
+        width: 80%;
+        font-size: 0.7rem;
+    }
+    .formulario h2{
+        font-size: 1.2rem;
+    }
+}

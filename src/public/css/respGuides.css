@@ -1,0 +1,82 @@
+@media (max-width: 1400px) {
+    .portadaBCont{
+        width: 100%;
+        height: 100%;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr 1fr;
+        grid-template-areas: "tituloBC tituloBC tituloBC"
+                             "imagenBC imagenBC imagenBC"
+                             "parrafBC parrafBC parrafBC"
+                             "parrafBC parrafBC parrafBC";
+    }
+    .portadaBTitulo{
+        width: 100%;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        margin: 0;
+        font-size: 2rem;
+    }
+    .portadaBImg{
+        margin: auto;
+        width: 40%;
+        height: auto;
+    }
+    .portadaBTexto{
+        width: 100%;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        margin: 0;
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 1000px){
+    .guiaItem{
+        font-size: 0.8rem;
+    }
+    .contentB{
+        grid-area: con;
+        width: 90%;
+        height: 90%;
+        margin: auto;
+        margin-top: 0;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+        grid-template-areas: "tituloB tituloB tituloB tituloB"
+                             "menu00B menu00B menu00B menu00B"
+                             "menu00B menu00B menu00B menu00B"
+                             "articulo articulo articulo articulo"
+                             "articulo articulo articulo articulo"
+                             "articulo articulo articulo articulo"
+                             "articulo articulo articulo articulo"
+                             "articulo articulo articulo articulo";
+    }
+    .contentBA2{
+        width: 100%;
+    }
+    .contenido{
+        font-size: 0.8rem;
+    }
+    .tituloGuia{
+        font-size: 1.8rem;
+    }
+}
+
+@media (max-width: 720px){
+    .contenido{
+        font-size: 0.7rem;
+    }
+    .tituloGuia{
+        font-size: 1.6rem;
+    }
+    .portadaBTitulo{
+        font-size: 1.6rem;
+    }
+    .portadaBTexto{
+        font-size: 0.8rem;
+    }
+}
