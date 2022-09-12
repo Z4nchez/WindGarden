@@ -1,9 +1,9 @@
 const express = require("express");
 const path = require("path");
 const mongoose = require("mongoose");
-const regionSchema = require("./models/region");
-const guideSchema = require("./models/guide");
-const cropSchema = require("./models/crop");
+const regionSchema = require("./src/models/region");
+const guideSchema = require("./src/models/guide");
+const cropSchema = require("./src/models/crop");
 const cloudinary = require("cloudinary");
 
 cloudinary.config({
@@ -26,12 +26,12 @@ mongoose.connect(uri,
 .catch(e => console.log(e))
 
 app.set("view engine", "ejs");
-app.set("views", path.join(__dirname, "views"));
+app.set("views", path.join(__dirname, "src/views"));
 
-app.use(express.static(path.join(__dirname, "public")));
-app.use("/", require("./routes/routeIndex.js"));
-app.use("/guides", require("./routes/routeGuide.js"));
-app.use("/crops", require("./routes/routeCrops.js"));
+app.use(express.static(path.join(__dirname, "src/public")));
+app.use("/", require("./src/routes/routeIndex.js"));
+app.use("/guides", require("./src/routes/routeGuide.js"));
+app.use("/crops", require("./src/routes/routeCrops.js"));
 app.use(express.json());
 app.use(express.urlencoded({extended: true}))
 
