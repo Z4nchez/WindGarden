@@ -212,6 +212,9 @@
     justify-content: center;
     overflow-y: scroll;
 }
+.textoCultivo::-webkit-scrollbar {
+    display: none;
+}
 .textC1{
     width: 90%;
     height: 90%;

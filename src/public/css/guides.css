@@ -62,11 +62,10 @@
     grid-area: menu00B;
     display: flex;
     justify-content: center;
-    align-items: flex-start;
-    overflow-y: scroll;
+    align-items: flex-start;  
 }
 .contentBM2{
-    width: 100%;
+    width: 110%;
     height: 90%;
     background-color: rgba(0, 0, 0, 0.14);
     display: flex;
@@ -74,6 +73,10 @@
     justify-content: flex-start;
     align-items: center;
     gap: 1px;
+    overflow-y:scroll;    
+}
+.contentBM2::-webkit-scrollbar {
+    display: none;
 }
 .tituloB0{
     font-size: 2rem;
