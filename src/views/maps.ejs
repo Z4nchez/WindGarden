@@ -88,7 +88,7 @@
         const img3 = document.getElementById("imgC3");
         const botonC = document.getElementById("buttonC");
 
-        function cargarRegion(nombre){
+        function cargarRegion(nombre){ //funcion ajax
             fetch('obtenerDB', {
                 method: "POST",
                 headers: {"Content-Type" : "application/json"},
